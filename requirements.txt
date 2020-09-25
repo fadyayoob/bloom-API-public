@@ -1,6 +1,8 @@
 asgiref==3.2.10
+dj-database-url==0.5.0
 Django==3.1.1
 django-filter==2.3.0
+django-heroku==0.3.1
 django-macaddress==1.7.0
 djangorestframework==3.11.1
 drf-writable-nested==0.6.1
@@ -10,7 +12,9 @@ Markdown==3.2.2
 netaddr==0.8.0
 Pillow==7.2.0
 protobuf==3.13.0
+psycopg2==2.8.6
 pydgraph==20.3.1
 pytz==2020.1
 six==1.15.0
 sqlparse==0.3.1
+whitenoise==5.2.0
