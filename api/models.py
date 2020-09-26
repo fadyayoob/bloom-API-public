@@ -34,9 +34,7 @@ class Mouse_Click(models.Model):
 
 class Cart(models.Model):    
     Session = models.ForeignKey(Session, related_name='Session+', on_delete=models.CASCADE)
-    Name=models.CharField(max_length=100)
-    Price=models.CharField(max_length=500)
-    Url=models.CharField(max_length=500)
+    Request = models.CharField(max_length=1000000) 
 
 class Add_To_Cart(models.Model):   
     Session = models.ForeignKey(Session, related_name='Session+', on_delete=models.CASCADE)
@@ -50,9 +48,4 @@ class Delete_From_The_Cart(models.Model):
 
 class Checkout(models.Model):    
     Session = models.ForeignKey(Session, related_name='Session+', on_delete=models.CASCADE)
-    Title=models.CharField(max_length=100)
-    Price=models.CharField(max_length=500)
-    Qty=models.CharField(max_length=100)
-    Soldby=models.CharField(max_length=500)
-    ShipSpeed=models.CharField(max_length=200)
-    Address=models.CharField(max_length=250)
+    Request = models.CharField(max_length=1000000) 

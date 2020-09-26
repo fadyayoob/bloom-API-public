@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import permissions
@@ -9,6 +10,8 @@ from rest_framework import generics
 from .models import Session,Search,Product,Mouse_Click,Cart ,Add_To_Cart,Delete_From_The_Cart,Checkout
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.decorators import parser_classes
+from rest_framework.parsers import JSONParser
 # Create your views here.
 
 
@@ -95,5 +98,30 @@ class Checkout(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = CheckoutSerializer(queryset, many=True)
         return Response(serializer.data)
+"""
+class  Carte(generics.ListCreateAPIView):
+        # Note the use of `get_queryset()` instead of `self.queryset`
+    def carte(self, request, format=None):
+        x = {"Session": { "Mac": "aaa", "Auth0_Token": "aaa" },"Request":[{"Name": "aaa", "Price": "aaaa", "Url": "aaaa" }]}
+        y = json.loads(x) 
+        return print(x)
+"""
+@api_view(['POST'])
+@parser_classes([JSONParser])
+def carte(request, format=None):
+    Name = request.POST.get("Name")
+    Price =request.POST.get("Price")
+    Url = request.POST.get("Url")
+    return Response({'received data': request.data})
 
-
+@api_view(['POST'])
+@parser_classes([JSONParser])
+def checkoute(request, format=None):
+    Name = request.POST.get("Title")
+    Price =request.POST.get("Price")
+    Qty = request.POST.get("Qty")
+    soldby = request.POST.get("Soldby")
+    ShipSpeed = request.POST.get("ShipSpeed")
+    Address = request.POST.get("Address")
+    return Response({'received data': request.data})
+  

@@ -61,5 +61,5 @@ class CheckoutSerializer(WritableNestedModelSerializer):
         fields = ['Session','Title','Price','Qty','Soldby','ShipSpeed','Address']
 
      
-   
+  
               
